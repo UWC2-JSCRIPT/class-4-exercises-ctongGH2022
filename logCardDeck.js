@@ -1,3 +1,14 @@
+/**
+ * Cecilia Tong
+ * Class 4 Exercise & Homework
+ * Nov 8st, 2022
+ * logCardDeck
+ */
+
+/**
+ 4. Given a complete deck of cards, loop through and log every property of every card to 
+ the console (deck provided in the exercises repo). 
+ */
 const cards = [
   { val: 2, displayVal: '2', suit: 'hearts' },
   { val: 3, displayVal: '3', suit: 'hearts' },
@@ -58,4 +69,15 @@ const cards = [
  *
  * @param {array} deck A deck of cards
  */
-const logCardDeck = deck => {};
+const logCardDeck = deck => {
+  
+  // sets card to array with the values
+  const card = Object.values(cards)
+ 
+  //looping through objects & log value to console
+  for (let value of card)
+    console.log(value);
+};
+
+//test function logCardDeck
+logCardDeck();
