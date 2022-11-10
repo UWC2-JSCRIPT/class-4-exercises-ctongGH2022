@@ -65,12 +65,13 @@ const cards = [
 ];
 
 /**
+ * Function logCardDeck()
  * Logs every property of every card to the console
  *
  * @param {array} deck A deck of cards
  */
 const logCardDeck = deck => {
-  
+
   // sets card to array with the values
   const card = Object.values(cards)
  
