@@ -161,6 +161,8 @@ const startGame = function() {
     player.drawCard();
     playerScore = calcPoints(player.hand).total;
     showHand(player);
+
+    //FOR EXTRA CREDITS - added logic to auto. win after 2 draws and point = 21 
     playerDrawCount += 1;
     if(playerDrawCount == 2 && playerScore == 21){
       return 'You win!';
@@ -169,13 +171,16 @@ const startGame = function() {
   if (playerScore > 21) {
     return 'You went over 21 - you lose!';
   }
-  console.log(`Player stands at ${playerScore}`);
 
+  console.log(`Player stands at ${playerScore}`);
+  
   let dealerScore = calcPoints(dealer.hand).total;
   while (dealerScore < 21 && dealerShouldDraw(dealer.hand)) {
     dealer.drawCard();
     dealerScore = calcPoints(dealer.hand).total;
     showHand(dealer);
+
+    //FOR EXTRA CREDITS - added logic to auto. win after 2 draws and point = 21
     dealerDrawCount += 1;
     if(dealerDrawCount == 2 && dealerScore == 21){
       return 'Dealer wins!';
@@ -184,8 +189,14 @@ const startGame = function() {
   if (dealerScore > 21) {
     return 'Dealer went over 21 - you win!';
   }
+
   console.log(`Dealer stands at ${dealerScore}`);
 
-  return determineWinner(playerScore, dealerScore);
+  //FOR EXTRA CREDITS - added below to display on HTML page for extra credits
+  document.getElementById("player-score").innerText = playerScore;
+  document.getElementById("dealer-score").innerText = dealerScore;
+  let results = determineWinner(playerScore, dealerScore);
+  document.getElementById("results").innerText = results;
+  return results;
 }
 console.log(startGame());
