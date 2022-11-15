@@ -1,3 +1,21 @@
+/**
+ * Cecilia Tong
+ * Class 4 Exercise & Homework
+ * Nov 8st, 2022
+ * cardsWorthTen
+ */
+
+/**
+ 3. Create a function cardsWorthTen that uses the array functions above (no regular loops allowed, 
+  no array forEach allowed). Will accept an array of cards in the format below. Will return a comma 
+  separated string of the displayVals of only those cards worth exactly 10.
+
+{
+  val,
+  displayVal
+  suit
+}
+ */
 const cards = [
   { val: 2, displayVal: "2", suit: "hearts" },
   { val: 3, displayVal: "3", suit: "hearts" },
@@ -15,13 +33,26 @@ const cards = [
 ];
 
 /**
+ * Function cardsWorthTen()
  * Takes an array of cards and returns a string of the card display
  * values where the value is equal to 10
  *
  * @param {array} cards
  * @return {string} displayVal
  */
-const cardsWorthTen = cards => {};
+const cardsWorthTen = cards => {
 
+//use array.filter() to find card array of cards with value = 10  
+let card = cards.filter(card => card.val == 10)
+
+//build myArr array to store only displayVal of cards to display
+var myArr = [];
+for (let value of card){
+ myArr.push(String(value.displayVal));
+}
+return (`"${myArr}"`);
+};
+
+//check the function
 console.log(cardsWorthTen(cards));
 // should return/log "10, Jack, Queen, King"
